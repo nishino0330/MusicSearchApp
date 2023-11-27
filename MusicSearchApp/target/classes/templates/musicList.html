@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Music Search</title>
+</head>
+<body>
+    <h1>Music Search</h1>
+    <p>検索結果</p>
+    <p>アーティスト名:<span th:text="${artist}"></span></p>
+
+	<p>トラック<br/>
+		<span th:if="${trackNames != null}" th:each="trackName, trackIndex : ${trackNames}">
+            <span th:text="'・' + ${trackName}"></span>
+            <span th:text="${trackIndex.index}"></span>
+            <button type="submit">再生</button><br/>
+        </span>
+    </p>
+
+
+	<p th:if="${notFoundMessage != null}" th:text="${notFoundMessage}" style="color: red;"></p>
+
+    <a href="/">戻る</a>
+</body>
+</html>
